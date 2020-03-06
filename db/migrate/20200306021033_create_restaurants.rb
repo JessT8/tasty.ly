@@ -5,7 +5,6 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.text :image_url
       t.text :decription
       t.belongs_to :owner, null: false, foreign_key: true
-
       t.timestamps
     end
   end
