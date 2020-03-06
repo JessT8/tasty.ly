@@ -7,6 +7,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def list
+    @user = User.find_by_id(current_user.id)
+    @restaurants = @user.restaurants
+  end
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show

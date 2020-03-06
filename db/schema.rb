@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2020_03_06_055013) do
   end
 
   create_table "foods_users", force: :cascade do |t|
-    t.bigint "foods_id"
-    t.bigint "users_id"
-    t.index ["foods_id"], name: "index_foods_users_on_foods_id"
-    t.index ["users_id"], name: "index_foods_users_on_users_id"
+    t.bigint "food_id"
+    t.bigint "user_id"
+    t.index ["food_id"], name: "index_foods_users_on_food_id"
+    t.index ["user_id"], name: "index_foods_users_on_user_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_055013) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.text "image_url"
-    t.text "decription"
+    t.text "description"
     t.bigint "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2020_03_06_055013) do
   end
 
   create_table "restaurants_users", force: :cascade do |t|
-    t.bigint "restaurants_id"
-    t.bigint "users_id"
-    t.index ["restaurants_id"], name: "index_restaurants_users_on_restaurants_id"
-    t.index ["users_id"], name: "index_restaurants_users_on_users_id"
+    t.bigint "restaurant_id"
+    t.bigint "user_id"
+    t.index ["restaurant_id"], name: "index_restaurants_users_on_restaurant_id"
+    t.index ["user_id"], name: "index_restaurants_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

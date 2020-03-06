@@ -6,7 +6,6 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.all
   end
-
   # GET /foods/1
   # GET /foods/1.json
   def show

@@ -3,7 +3,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
     create_table :restaurants do |t|
       t.string :name
       t.text :image_url
-      t.text :decription
+      t.text :description
       t.belongs_to :owner, null: false, foreign_key: true
       t.timestamps
     end
