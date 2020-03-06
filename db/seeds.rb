@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user1 = User.new({email: FFaker::Internet.email, password: 'password', password_confirmation: 'password'})
+user1.save
+user2 = User.new({email: FFaker::Internet.email, password: 'password', password_confirmation: 'password'})
+user2.save
+user3 = User.new({email: FFaker::Internet.email, password: 'password', password_confirmation: 'password'})
+user3.save
