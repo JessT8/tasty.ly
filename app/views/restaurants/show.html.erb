@@ -1,24 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
-
+<%=image_tag @restaurant.image_url %>
 <p>
-  <strong>Image url:</strong>
-  <%= @restaurant.image_url %>
+  <strong>Description:</strong>
+  <%= @restaurant.description %>
 </p>
 
-<p>
-  <strong>Decription:</strong>
-  <%= @restaurant.decription %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @restaurant.owner_id %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Back', favRestaurantList_path  %>
