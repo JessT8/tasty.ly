@@ -19,7 +19,7 @@ export default class App extends React.Component{
     }
 
     getRestaurants = () => {
-          const url = '/products.json';
+          const url = '/restaurants.json';
           axios.get(url)
             .then((response) => {
               const data = response.data;
@@ -36,12 +36,7 @@ export default class App extends React.Component{
         return(
             <div className="container">
                 <div className="row">
-                dsbkjs
-                    <input
-                        className="form-control"
-                        value={this.props.search}
-                        onChange={(e)=>{this.changeInput(e)}}>
-                    </input>
+                 In app
                 </div>
             </div>
             );

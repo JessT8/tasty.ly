@@ -1,9 +1,4 @@
 <%= render :layout => '/shared/sideNav' do %>
 		<h1>Favorite Restaurants</h1>
-    <% @restaurants.each do |restaurant| %>
-    	<%= link_to restaurant do%>
-        <%=image_tag restaurant.image_url %>
-        <%= restaurant.name %>
-      <% end %>
-    <% end %>
+		<%= javascript_pack_tag 'hello_react' %>
 <% end %>
