@@ -1,4 +1,7 @@
-<%= render :layout => '/shared/sideNav' do %>
-		<h1>Favorite Restaurants</h1>
-		<%= javascript_pack_tag 'hello_react' %>
+<%=  render 'shared/sideNav' do %>
+  	<div class="col-10">
+  		<h1>Favorite Restaurants</h1>
+    	<div id="list"></div>
+  	</div>
 <% end %>
+<%= javascript_pack_tag 'hello_react' %>

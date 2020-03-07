@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import App from '../app'
 
 const Hello = props => (
-    <div><App/>dsd</div>
+    <div><App/></div>
 )
 
 Hello.defaultProps = {
@@ -22,6 +22,6 @@ Hello.propTypes = {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
+   document.getElementById('list')
   )
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import FavRestaurant from './components/favrestaurant';
 
 export default class App extends React.Component{
     constructor(){
@@ -36,7 +37,7 @@ export default class App extends React.Component{
         return(
             <div className="container">
                 <div className="row">
-                 In app
+                    <FavRestaurant favRestaurant={this.state.restaurants}/>
                 </div>
             </div>
             );
