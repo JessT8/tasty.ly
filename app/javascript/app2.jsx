@@ -6,9 +6,8 @@ export default class App2 extends React.Component{
 
     render(){
         let displayRestaurant = "";
-        console.log(this.props.restaurant)
      if(this.props.restaurant){
-        displayRestaurant = <div>
+        displayRestaurant = <div className='col mx-auto text-center'>
         <h1>{this.props.restaurant.name}</h1>
         <img src={this.props.restaurant.image_url} />
         </div>
