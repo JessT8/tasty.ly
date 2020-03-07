@@ -11,9 +11,6 @@ import App2 from '../app2'
 const Hello = props => (
     <div><App/></div>
 )
-const IndividualFavRestaurant = props => (
-    <div><App2/></div>
-)
 
 Hello.defaultProps = {
   name: 'David'
@@ -28,11 +25,9 @@ if( document.getElementById('list')){
   ReactDOM.render(
     <Hello name="React" />,
    document.getElementById('list')
-  )
-}else if( document.getElementById('IndividualFavRestaurant')){
+  )}else if(document.getElementById('individualRestaurant')){
+const node = document.getElementById('individualRestaurant');
+      const data = JSON.parse(node.getAttribute('data'))
       ReactDOM.render(
-    <Hello name="React" />,
-   document.getElementById('IndividualFavRestaurant')
-  )
-}
-})
+    <App2 restaurant={data}/>, node)
+  }})

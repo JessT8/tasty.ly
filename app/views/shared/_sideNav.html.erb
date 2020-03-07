@@ -1,9 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-    	<div class="col-2 mt-5">
+    	<div class="col-2">
     		<div class="p-2 position-fixed">
-    			<p><%= link_to "Favorite Restaurants", "/restaurants/favlist" %></p>
-    			<p><%= link_to "Favorite Menu items", "/restaurants/favlist" %></p>
+    			<h2>Tasty.ly</h2>
+    			<p><%= link_to "Favorite Restaurants", "/favlist/restaurants" %></p>
+    			<p><%= link_to "Favorite Menu items", "/favlist/restaurants" %></p>
     			<p><%= link_to "Search Restaurants", "/restaurants" %></p>
     			<p><%= link_to "Sign out", destroy_user_session_url, method: :delete %></p>
     		</div>
