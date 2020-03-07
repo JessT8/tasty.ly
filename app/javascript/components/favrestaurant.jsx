@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class Favrestaurant extends React.Component{
     render(){
         const favRestaurant = this.props.favRestaurant.map((restaurant, index)=>{
-            let link = '/restaurants/' + restaurant.id;
+            let link = '/restaurants/favlist/' + restaurant.id;
           return (
             <React.Fragment key = {index}>
                         <div className="col-4 p-0 mb-3">
@@ -13,7 +13,6 @@ export default class Favrestaurant extends React.Component{
                         <h4>{restaurant.name}</h4>
                         </a>
                          </div>
-
             </React.Fragment>);
         });
         return(

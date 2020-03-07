@@ -6,9 +6,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../app'
+import App2 from '../app2'
 
 const Hello = props => (
     <div><App/></div>
+)
+const IndividualFavRestaurant = props => (
+    <div><App2/></div>
 )
 
 Hello.defaultProps = {
@@ -20,8 +24,15 @@ Hello.propTypes = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+if( document.getElementById('list')){
   ReactDOM.render(
     <Hello name="React" />,
    document.getElementById('list')
   )
+}else if( document.getElementById('IndividualFavRestaurant')){
+      ReactDOM.render(
+    <Hello name="React" />,
+   document.getElementById('IndividualFavRestaurant')
+  )
+}
 })

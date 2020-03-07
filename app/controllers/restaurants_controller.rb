@@ -11,11 +11,15 @@ class RestaurantsController < ApplicationController
     @user = User.find_by_id(current_user.id)
     @restaurants = @user.restaurants
   end
+
+  def individualFavRestaurant
+    @restaurant = Restaurant.find_by_id(params[:id])
+    @food = @restaurant.foods
+  end
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find_by_id(params[:id])
-    @food = @restaurant.foods
   end
 
   # GET /restaurants/new

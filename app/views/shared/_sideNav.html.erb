@@ -1,12 +1,11 @@
 <div class="container-fluid">
     <div class="row">
     	<div class="col-2 mt-5">
-    		<div class="p-2">
-	    		<p>Favorite Restaurants</p>
-	    		<p>Favorite Foods</p>
-	    		<p>All Restaurants</p>
-	    		<p>All Foods</p>
-	    		<p>Sign out</p>
+    		<div class="p-2 position-fixed">
+    			<p><%= link_to "Favorite Restaurants", "/restaurants/favlist" %></p>
+    			<p><%= link_to "Favorite Menu items", "/restaurants/favlist" %></p>
+    			<p><%= link_to "Search Restaurants", "/restaurants" %></p>
+    			<p><%= link_to "Sign out", destroy_user_session_url, method: :delete %></p>
     		</div>
     	</div>
     		  <%= yield %>
