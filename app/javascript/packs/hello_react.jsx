@@ -27,7 +27,8 @@ if( document.getElementById('list')){
    document.getElementById('list')
   )}else if(document.getElementById('individualRestaurant')){
 const node = document.getElementById('individualRestaurant');
-      const data = JSON.parse(node.getAttribute('data'))
+      const data = JSON.parse(node.getAttribute('data'));
+      const food = JSON.parse(node.getAttribute('food'));
       ReactDOM.render(
-    <App2 restaurant={data}/>, node)
+    <App2 data={data} food={food}/>, node)
   }})

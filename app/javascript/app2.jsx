@@ -3,13 +3,46 @@ import axios from 'axios';
 import IndividualFavRestaurant from './components/individualfavrestaurant';
 
 export default class App2 extends React.Component{
-
+    constructor(){
+        super()
+        this.state = {
+            checked: true
+        }
+    }
+checked=()=>{
+    let checked = this.state.checked;
+    this.setState({checked: !checked});
+    return !checked
+}
     render(){
         let displayRestaurant = "";
-     if(this.props.restaurant){
+        let foods="";
+     if(this.props.data){
+        foods = this.props.food.map((food,index) =>{
+            return <div className="input-group">
+            <label htmlFor={index}>{food.name}</label><input
+            value={food.id}
+            type="checkbox"
+            name={food.name}
+            id= {index}
+            className="mr-3 ml-3 mt-1"
+            />
+            </div>
+        });
         displayRestaurant = <div className='col mx-auto text-center'>
-        <h1>{this.props.restaurant.name}</h1>
-        <img src={this.props.restaurant.image_url} />
+        <div className='d-flex d-inline'><h1>{this.props.data.name}</h1>
+            <input
+            value={this.props.data.id}
+            type="checkbox"
+            className="mt-3 ml-3"
+            checked = {this.state.checked}
+            onChange = {this.checked}
+            /></div>
+
+        <img src={this.props.data.image_url} />
+        <h5>Menu items</h5>
+        <div className="w-50 mx-auto text-center form-inline">
+        {foods}</div>
         </div>
      }
         return(
