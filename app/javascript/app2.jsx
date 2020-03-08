@@ -11,15 +11,16 @@ export default class App2 extends React.Component{
     }
 
 handleRemove = lists => {
-    const url = `/favlist/restaurants/${lists.target.value}`;
-        axios.delete(url, {
- data: { }})
-      .then(res => {
+ //    const url = `/favlist/restaurants/${lists.target.value}`;
+ //        axios.delete(url, {
+ // data: { }})
+ //      .then(res => {
+        let checked = this.state.checked;
         this.setState({checked: !checked});
-        })
-      .catch(err => {
-        console.log(err.response);
-      });
+      //   })
+      // .catch(err => {
+      //   console.log(err.response);
+      // });
   };
     render(){
         let displayRestaurant = "";
@@ -27,29 +28,32 @@ handleRemove = lists => {
      if(this.props.data){
         foods = this.props.food.map((food,index) =>{
             return <div className="input-group">
-            <label htmlFor={index}>{food.name}</label><input
-            value={food.id}
-            type="checkbox"
-            name={food.name}
-            id= {index}
-            className="mr-3 ml-3 mt-1"
-            />
+             <input id={index}
+                   type="checkbox"
+                   className = "foodcheckbox"
+                   />
+            {food.name}
+            <label htmlFor={index} className="ml-3 mr-2"/>
             </div>
         });
         displayRestaurant = <div className='col mx-auto text-center'>
         <div className='d-flex d-inline'><h1>{this.props.data.name}</h1>
-            <input
-            value={this.props.data.id}
-            type="checkbox"
-            className="mt-3 ml-3"
-            checked = {this.state.checked}
-            onChange = {(event)=>{this.handleRemove(event);}}
-            /></div>
-
+            <input id="heart"
+                   type="checkbox"
+                   className = "red-heart-checkbox"
+                   checked={this.state.checked}
+                   onChange = {(e)=>{this.handleRemove(e)}}
+                   />
+            <label htmlFor="heart"></label>
+        </div>
+        <div>
         <img src={this.props.data.image_url} />
         <h5>Menu items</h5>
+        </div>
         <div className="w-50 mx-auto text-center form-inline">
-        {foods}</div>
+        {foods}
+        </div>
+
         </div>
      }
         return(

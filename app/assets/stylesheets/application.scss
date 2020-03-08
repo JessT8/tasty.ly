@@ -13,48 +13,90 @@
  *= require_tree .
  *= require_self
  */
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
+
 * {
 	font-family: 'Roboto', sans-serif !important;
-
 	letter-spacing: 0.1em;
-
 }
 
 
-[id="heart"] {
-  position: absolute;
-  left: -100vw;
-}
-
-[for="heart"] {
-  color: #aab8c2;
+@mixin checkmark($size) {
+  font-size: $size;
+  content: "❤";
   cursor: pointer;
-  font-size: 6em;
-  align-self: center;
-  transition: color 0.2s ease-in-out;
 }
 
-[for="heart"]:hover {
-  color: grey;
+@mixin box-style($size) {
+  width: 1.05*$size;
+  height: $size;
+  content: "";
+  position: absolute;
+  margin-left: -0.3*$size;
+  margin-top: -0.15*$size;
 }
 
-[for="heart"]::selection {
-  color: none;
-  background: transparent;
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-[for="heart"]::moz-selection {
-  color: none;
-  background: transparent;
+.red-heart-checkbox {
+  $primary: #F00;
+  $secondary: #888;
+  $size: 40px;
+  visibility: hidden;
+
+  & + label {
+    @include no-select;
+    font-size: $size;
+    padding-left: 0.5*$size;
+    transition: all 0.2s;
+  }
+  &:checked + label:before {
+    content: "❤";
+    color: $primary;
+  }
+  & + label:before {
+    @include box-style($size);
+    @include checkmark($size);
+    transition: all 0.3s;
+    color: $secondary;
+  }
+  & + label:hover:before {
+    transform: scale(1.2);
+  }
 }
 
-[id="heart"]:checked + label {
-  color: #e2264d;
-  will-change: font-size;
-  animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
+.foodcheckbox{
+  $primary: #F00;
+  $secondary: #888;
+  $size: 20px;
+  visibility: hidden;
+  & + label {
+    @include no-select;
+    font-size: $size;
+    padding-left: 0.5*$size;
+    transition: all 0.2s;
+  }
+  &:checked + label:before {
+    content: "❤";
+    color: $primary;
+  }
+  & + label:before {
+    @include box-style($size);
+    @include checkmark($size);
+    transition: all 0.3s;
+    color: $secondary;
+  }
+  & + label:hover:before {
+    transform: scale(1.2);
+  }
 }
-
-
-
-@keyframes heart {0%, 17.5% {font-size: 0;}}
