@@ -9,11 +9,18 @@ export default class App2 extends React.Component{
             checked: true
         }
     }
-checked=()=>{
-    let checked = this.state.checked;
-    this.setState({checked: !checked});
-    return !checked
-}
+
+handleRemove = lists => {
+    const url = `/favlist/restaurants/${lists.target.value}`;
+        axios.delete(url, {
+ data: { }})
+      .then(res => {
+        this.setState({checked: !checked});
+        })
+      .catch(err => {
+        console.log(err.response);
+      });
+  };
     render(){
         let displayRestaurant = "";
         let foods="";
@@ -36,7 +43,7 @@ checked=()=>{
             type="checkbox"
             className="mt-3 ml-3"
             checked = {this.state.checked}
-            onChange = {this.checked}
+            onChange = {(event)=>{this.handleRemove(event);}}
             /></div>
 
         <img src={this.props.data.image_url} />

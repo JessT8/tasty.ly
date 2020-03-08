@@ -16,6 +16,15 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find_by_id(params[:id])
     @food = @restaurant.foods
   end
+  def deleteRestaurant
+     @restaurants = Restaurant.find(params[:id])
+     @user = User.find(current_user.id)
+     @restaurants.users.delete(@user)
+     respond_to do |format|
+      format.html { redirect_to individualFavRestaurant_url, notice: 'Restaurant was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
