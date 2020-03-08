@@ -1,9 +1,6 @@
-<%=  render 'shared/sideNav' do %>
+<%=  render 'shared/ownerNav' do %>
   	<div class="col-10">
-<%= content_tag :div,
-  id: "individualRestaurant",
-  data: @restaurant.to_json do %>
+  		<%=image_tag @restaurant.image_url %>
+  		<%= @restaurant.name %>
+  		<%= link_to "Add Food Item", new_food_path %></p>
 <% end %>
-<%= link_to 'Back', favRestaurantList_path %>
-<% end %>
-<%= javascript_pack_tag 'hello_react' %>
