@@ -7,7 +7,6 @@ export default class Favrestaurant extends React.Component{
             let link = '/favlist/restaurants' + restaurant.id;
           return (
             <React.Fragment key = {index}>
-   sjkla
             </React.Fragment>);
         });
         return(

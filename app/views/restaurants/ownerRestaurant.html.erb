@@ -1,9 +1,19 @@
 <%=  render 'shared/ownerNav' do %>
 	<div class="col-10">
 		<h1>My Restaurants</h1>
-		<% @restaurants.each do |restaurant| %>
-      <%= restaurant.image_url %>
-      <%= restaurant.name %>
-    <% end %>
-	</div>
+				<div class="container">
+				  <div class="row">
+						<% @restaurants.each do |restaurant| %>
+						<div class="col-4 p-0 mb-3">
+						  <a href='/restaurants/<%= restaurant.id %>'/>
+					    		<%=image_tag restaurant.image_url %>
+					    		<h4><%= restaurant.name %></h4>
+					   	</a>
+					   	</div>
+					  <% end %>
+       		 </div>
+    </div>
+           		 </div>
+    </div>
+  </div>
 <% end %>
