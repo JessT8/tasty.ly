@@ -1,0 +1,9 @@
+<%=  render 'shared/ownerNav' do %>
+	<div class="col-10">
+		<h1>My Restaurants</h1>
+		<% @restaurants.each do |restaurant| %>
+      <%= restaurant.image_url %>
+      <%= restaurant.name %>
+    <% end %>
+	</div>
+<% end %>

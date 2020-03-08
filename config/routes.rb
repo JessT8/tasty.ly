@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :restaurants do
     collection do
-      get :list, :individualFavRestaurant
+      get :list, :individualFavRestaurant, :ownerRestaurant
       delete :deleteRestaurant
     end
   end
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   get 'favlist/restaurants/:id' => 'restaurants#individualFavRestaurant', as: :individualFavRestaurant
   delete 'favlist/restaurants/:id' => 'restaurants#deleteRestaurant'
   get 'favlist/foods/' => 'foods#list', as: :favFoodList
-
+  get 'owner/restaurants' => 'restaurants#ownerRestaurant', as: :ownerRestaurant
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

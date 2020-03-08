@@ -8,8 +8,8 @@ class RestaurantsController < ApplicationController
   end
 
   def list
-    @user = User.find_by_id(current_user.id)
-    @restaurants = @user.restaurants
+      @user = User.find_by_id(current_user.id)
+      @restaurants = @user.restaurants
   end
 
   def individualFavRestaurant
@@ -69,7 +69,9 @@ class RestaurantsController < ApplicationController
       end
     end
   end
-
+  def ownerRestaurant
+        @restaurants = Restaurant.where(owner: current_owner.id)
+  end
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
