@@ -9,7 +9,7 @@ import App from '../app'
 import App2 from '../app2'
 
 const Hello = props => (
-    <div><App/></div>
+    <div></div>
 )
 
 Hello.defaultProps = {
@@ -22,11 +22,13 @@ Hello.propTypes = {
 
 document.addEventListener('DOMContentLoaded', () => {
 if( document.getElementById('list')){
+    const node = document.getElementById('list');
+    const data = JSON.parse(node.getAttribute('data'));
   ReactDOM.render(
-    <Hello name="React" />,
+    <App data={data}/>,
    document.getElementById('list')
   )}else if(document.getElementById('individualRestaurant')){
-const node = document.getElementById('individualRestaurant');
+      const node = document.getElementById('individualRestaurant');
       const data = JSON.parse(node.getAttribute('data'));
       const food = JSON.parse(node.getAttribute('food'));
       const present = node.getAttribute('present');

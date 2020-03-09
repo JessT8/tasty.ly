@@ -9,18 +9,8 @@ export default class Favrestaurant extends React.Component{
         }
     }
     componentDidMount(){
-        this.getRestaurants();
-    }
 
-    getRestaurants = () => {
-          const url = '/restaurants.json';
-          axios.get(url)
-            .then((response) => {
-              const data = response.data;
-              this.setState({ restaurants: data });
-            }).catch((error)=>{
-              console.log(error);
-            })
+        this.setState({ restaurants: this.props.data});
     }
     render(){
         const favRestaurant = this.state.restaurants.map((restaurant, index)=>{

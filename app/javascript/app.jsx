@@ -7,7 +7,7 @@ export default class App extends React.Component{
         return(
             <div className="container">
                 <div className="row">
-                    <Favrestaurant />
+                    <Favrestaurant data={this.props.data}/>
                 </div>
             </div>
             );
