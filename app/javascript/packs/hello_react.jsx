@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 if( document.getElementById('list')){
     const node = document.getElementById('list');
     const data = JSON.parse(node.getAttribute('data'));
-console.log('here',data);
   ReactDOM.render(
     <App data={data}/>,
    document.getElementById('list')

@@ -4,8 +4,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-     @user = User.find_by_id(current_user.id)
-     @restaurants = Restaurant.left_outer_joins(:users).where(users: { id: nil } )
+    @restaurants = Restaurant.all
+    #get not favorite restaurants
+    # @user = User.find_by_id(current_user.id)
+    # @restaurants = Restaurant.left_outer_joins(:users).where(users: { id: nil } )
   end
 
   def list

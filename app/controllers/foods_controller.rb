@@ -24,12 +24,15 @@ class FoodsController < ApplicationController
     end
   end
   def deleteFood
-     @foods = Food.find_by_id(params[:id])
+
+     @foods = Food.find(set_food.id)
+     @restaurant = @foods.restaurant
      @user = User.find(current_user.id)
      @foods.users.delete(@user)
      respond_to do |format|
-      format.html { render 'restaurants/individualFavRestaurant'}
-      end
+      format.html { redirect_to individualFavRestaurant_url(@restaurant.id), notice: 'Food was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
   def list
     # @restaurants = Restaurant.joins(:foods).select("categories.*, COUNT(issues.id) AS issues_count").group('categories.id')
@@ -51,7 +54,6 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
-    byebug
     @food = Food.new(food_params)
     @food.restaurant_id = params[:id]
     respond_to do |format|
