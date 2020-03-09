@@ -2,5 +2,5 @@
   	<div class="col-10">
   		<%=image_tag @restaurant.image_url %>
   		<%= @restaurant.name %>
-  		<%= link_to "Add Food Item", new_food_path %></p>
+ <%= link_to 'Add Food Item', new_newItem_path(@restaurant.id) %>
 <% end %>

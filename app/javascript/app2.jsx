@@ -4,24 +4,41 @@ import IndividualFavRestaurant from './components/individualfavrestaurant';
 
 export default class App2 extends React.Component{
     constructor(){
-        super()
-        this.state = {
-            checked: true
+        super(),
+        this.state ={
+            checked: false
         }
     }
+    componentDidMount(){
+        if(this.props.present){
+            this.setState({checked:true});
+        }
+    }
+handleFav = lists => {
+    if(this.state.checked){
+    console.log("Destroying");
+    const url = `/favlist/restaurants/${lists.target.value}`;
+        axios.delete(url)
+      .then(res => {
+        this.setState({checked:false})
+        console.log('State', this.state.checked)
+         })
+      .catch(err => {
+        console.log(err.response);
+      });
+    }else{
+        console.log("Creating");
+      const url = `/favlist/restaurants/${lists.target.value}`;
+        axios.post(url)
+      .then(res => {
+        this.setState({checked:true});
+                console.log('State', this.state.checked);
+         })
+      .catch(err => {
+        console.log(err.response);
+      });
+    }}
 
-handleRemove = lists => {
- //    const url = `/favlist/restaurants/${lists.target.value}`;
- //        axios.delete(url, {
- // data: { }})
- //      .then(res => {
-        let checked = this.state.checked;
-        this.setState({checked: !checked});
-      //   })
-      // .catch(err => {
-      //   console.log(err.response);
-      // });
-  };
     render(){
         let displayRestaurant = "";
         let foods="";
@@ -39,10 +56,11 @@ handleRemove = lists => {
         displayRestaurant = <div className='col mx-auto text-center'>
         <div className='d-flex d-inline'><h1>{this.props.data.name}</h1>
             <input id="heart"
+                   value={this.props.data.id}
                    type="checkbox"
                    className = "red-heart-checkbox"
                    checked={this.state.checked}
-                   onChange = {(e)=>{this.handleRemove(e)}}
+                   onChange = {(e)=>{this.handleFav(e)}}
                    />
             <label htmlFor="heart"></label>
         </div>

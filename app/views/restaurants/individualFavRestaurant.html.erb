@@ -3,7 +3,8 @@
 <%= content_tag :div,
   id: "individualRestaurant",
   data: @restaurant.to_json,
-  food: @food.to_json do %>
+  food: @food.to_json,
+  present: @present do %>
 <% end %>
 <% end %>
 <%= javascript_pack_tag 'hello_react' %>

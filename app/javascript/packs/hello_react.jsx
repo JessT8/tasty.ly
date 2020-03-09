@@ -29,6 +29,12 @@ if( document.getElementById('list')){
 const node = document.getElementById('individualRestaurant');
       const data = JSON.parse(node.getAttribute('data'));
       const food = JSON.parse(node.getAttribute('food'));
+      const present = node.getAttribute('present');
+      let checked = false;
+      if(present){
+        checked= true;
+      }
+      console.log(checked);
       ReactDOM.render(
-    <App2 data={data} food={food}/>, node)
+    <App2 data={data} food={food} present={checked}/>, node)
   }})

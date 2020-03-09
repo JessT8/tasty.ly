@@ -15,15 +15,34 @@ class RestaurantsController < ApplicationController
   def individualFavRestaurant
     @restaurant = Restaurant.find_by_id(params[:id])
     @food = @restaurant.foods
+    @user = User.find_by_id(current_user.id)
+    if @restaurant.users.exists?(@user.id)
+      @present = true
+    else
+      @present = nil
+    end
   end
+
+  def favRestaurant
+    @restaurants = Restaurant.find_by_id(params[:id])
+    @user = User.find_by_id(current_user.id)
+    respond_to do |format|
+      if @restaurants.users << @user
+        format.html { redirect_to individualFavRestaurant_url(params[:id]), notice: 'Restaurant was successfully created.' }
+      else
+        format.html { render :new }
+        format.json { render json: individualFavRestaurant_url(params[:id]), status: :unprocessable_entity }
+      end
+    end
+  end
+
   def deleteRestaurant
      @restaurants = Restaurant.find(params[:id])
      @user = User.find(current_user.id)
      @restaurants.users.delete(@user)
      respond_to do |format|
-      format.html { redirect_to individualFavRestaurant_url, notice: 'Restaurant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      format.html { render 'restaurants/individualFavRestaurant'}
+      end
   end
   # GET /restaurants/1
   # GET /restaurants/1.json
@@ -91,5 +110,8 @@ class RestaurantsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def restaurant_params
       params.require(:restaurant).permit(:name, :image_url, :description, :owner_id)
+    end
+    def food_params
+      params.require(:food).permit(:id)
     end
 end

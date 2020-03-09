@@ -24,8 +24,9 @@ class FoodsController < ApplicationController
   # POST /foods
   # POST /foods.json
   def create
+    byebug
     @food = Food.new(food_params)
-
+    @food.restaurant_id = params[:id]
     respond_to do |format|
       if @food.save
         format.html { redirect_to @food, notice: 'Food was successfully created.' }

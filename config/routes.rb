@@ -4,19 +4,29 @@ Rails.application.routes.draw do
       get :favFoodList
     end
   end
+  resources :foods, only: [:new],
+    :path => "owner/food/:restaurant_id", as: :newItem
+
   resources :restaurants do
     collection do
       get :list, :individualFavRestaurant, :ownerRestaurant
       delete :deleteRestaurant
+      post :favRestaurant
     end
   end
   devise_for :owners
   devise_for :users
   root 'onepage#index'
+  #users
   get 'favlist/restaurants/' => 'restaurants#list', as: :favRestaurantList
   get 'favlist/restaurants/:id' => 'restaurants#individualFavRestaurant', as: :individualFavRestaurant
-  delete 'favlist/restaurants/:id' => 'restaurants#deleteRestaurant'
   get 'favlist/foods/' => 'foods#list', as: :favFoodList
+  post 'favlist/restaurants/:id' => 'restaurants#favRestaurant'
+  delete 'favlist/restaurants/:id' => 'restaurants#deleteRestaurant'
+
+
+  #owners
   get 'owner/restaurants' => 'restaurants#ownerRestaurant', as: :ownerRestaurant
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
