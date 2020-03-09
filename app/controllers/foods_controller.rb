@@ -11,6 +11,12 @@ class FoodsController < ApplicationController
   def show
   end
   def list
+    # @restaurants = Restaurant.joins(:foods).select("categories.*, COUNT(issues.id) AS issues_count").group('categories.id')
+    @user = User.find(current_user.id);
+    @foods = @user.foods
+    @count = @foods.group(:restaurant).count
+    @restaurants = @count.keys
+    @favorites = @count.values
   end
   # GET /foods/new
   def new

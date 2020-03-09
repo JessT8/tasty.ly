@@ -11,6 +11,7 @@ class RestaurantsController < ApplicationController
   def list
       @user = User.find_by_id(current_user.id)
       @restaurants = @user.restaurants
+      @restaurants = Restaurant.left_outer_joins(:users).where(users: { id: nil } )
   end
 
   def individualFavRestaurant

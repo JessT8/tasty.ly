@@ -1,8 +1,11 @@
 <%=  render 'shared/sideNav' do %>
   	<div class="col-10">
   		<h1>Favorite Food Restaurants</h1>
-    	<div id="list">
-    	</div>
+  		<%= content_tag :div,
+			  id: "foodList",
+			  data: @restaurants.to_json,
+			  fav: @@favorites.to_json do %>
+			<% end %>
   	</div>
 <% end %>
 <%= javascript_pack_tag 'hello_react' %>
