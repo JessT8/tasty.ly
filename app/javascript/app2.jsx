@@ -15,49 +15,87 @@ export default class App2 extends React.Component{
             this.setState({checked:true});
         }
         let foodNum = parseInt(this.props.food.length);
+        const foodList = this.props.food;
+        const favouritedFood = this.props.checkedFood;
         const foodChecked = [];
-        console.log(foodNum);
-        for(var i = 0; i < foodNum;i++){
+        for(var i = 0; i < foodNum; i++){
+          const found = favouritedFood.filter(food => food.id === foodList[i])
+          console.log(found.length > 0);
+          if(found){
             foodChecked.push(true);
+          }else{
+            foodChecked.push(false);
+          }
         }
-        this.setState({foodChecked: foodChecked});
+        this.setState({foodChecked: foodChecked})
     }
-handleFav = lists => {
-    if(this.state.checked){
-    console.log("Destroying");
-    const url = `/favlist/restaurants/${lists.target.value}`;
-        axios.delete(url)
-      .then(res => {
-        this.setState({checked:false})
-        console.log('State', this.state.checked)
-         })
-      .catch(err => {
-        console.log(err.response);
-      });
-    }else{
-        console.log("Creating");
-      const url = `/favlist/restaurants/${lists.target.value}`;
-        axios.post(url)
-      .then(res => {
-        this.setState({checked:true});
-                console.log('State', this.state.checked);
-         })
-      .catch(err => {
-        console.log(err.response);
-      });
-    }}
+
+
+    handleFav = lists => {
+        if(this.state.checked){
+        console.log("Destroying");
+        const url = `/favlist/restaurants/${lists.target.value}`;
+            axios.delete(url)
+          .then(res => {
+            this.setState({checked:false})
+            console.log('State', this.state.checked)
+             })
+          .catch(err => {
+            console.log(err.response);
+          });
+        }else{
+            console.log("Creating");
+          const url = `/favlist/restaurants/${lists.target.value}`;
+            axios.post(url)
+          .then(res => {
+            this.setState({checked:true});
+                    console.log('State', this.state.checked);
+             })
+          .catch(err => {
+            console.log(err.response);
+          });
+        }}
+    handleFoodFav = lists => {
+            const url = `/favlist/foods/${lists.target.value}`;
+            const checkedFood = this.state.foodChecked;
+            console.log('target', lists.target.id)
+        if(this.state.foodChecked[lists.target.index]){
+        console.log("Remove Favorited food");
+            axios.delete(url)
+          .then(res => {
+            checkedFood[lists.target.id] = false;
+            this.setState({foodChecked: checkedFood})
+            console.log('State', this.state.checked)
+             })
+          .catch(err => {
+            console.log(err.response);
+          });
+        }else{
+            console.log("Favorite food");
+            axios.post(url)
+          .then(res => {
+            checkedFood[lists.target.id] = true;
+            this.setState({foodChecked: checkedFood});
+                    console.log('State', this.state.checked);
+             })
+          .catch(err => {
+            console.log(err.response);
+          });
+        }}
 
     render(){
         let displayRestaurant = "";
         let foods="";
      if(this.props.data){
-        const checkedArray = this.state.foodChecked;
+        const checked = this.state.foodChecked;
         foods = this.props.food.map((food,index) =>{
             return <div className="input-group">
              <input id={index}
+                    value={food.id}
                    type="checkbox"
-                   checked={checkedArray[index]}
+                   checked={checked[index]}
                    className = "foodcheckbox"
+                   onChange ={(e)=>{this.handleFoodFav(e)}}
                    />
             {food.name}
             <label htmlFor={index} className="ml-3 mr-2"/>

@@ -35,13 +35,13 @@ console.log('here',data);
       const data = JSON.parse(node.getAttribute('data'));
       const food = JSON.parse(node.getAttribute('food'));
       const present = node.getAttribute('present');
+      const checkedFood= JSON.parse(node.getAttribute('checkedFood'));
       let checked = false;
       if(present){
         checked= true;
       }
-
       ReactDOM.render(
-    <App2 data={data} food={food} present={checked}/>, node)
+    <App2 data={data} food={food} present={checked} checkedFood={checkedFood}/>, node)
   }else if(document.getElementById("foodList")){
     const node = document.getElementById('foodList');
     const data = JSON.parse(node.getAttribute('data'));

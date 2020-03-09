@@ -4,7 +4,8 @@
   id: "individualRestaurant",
   data: @restaurant.to_json,
   food: @food.to_json,
-  present: @present do %>
+  present: @present,
+  checkedFood: @checkedFood.to_json do %>
 <% end %>
 <% end %>
 <%= javascript_pack_tag 'hello_react' %>

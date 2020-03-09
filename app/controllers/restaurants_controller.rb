@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find_by_id(params[:id])
     @food = @restaurant.foods
     @user = User.find_by_id(current_user.id)
+    @checkedFood = @user.foods.where(restaurant_id: params[:id] )
     if @restaurant.users.exists?(@user.id)
       @present = true
     else

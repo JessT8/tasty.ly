@@ -10,6 +10,27 @@ class FoodsController < ApplicationController
   # GET /foods/1.json
   def show
   end
+  def favFood
+    @foods = Food.find_by_id(params[:id])
+    @restaurant = @foods.restaurant
+    @user = User.find_by_id(current_user.id)
+    respond_to do |format|
+      if @foods.users << @user
+        format.html { redirect_to individualFavRestaurant_url(@restaurant.id)}
+      else
+        format.html { render :new }
+        format.json { render json: individualFavRestaurant_url(@restaurant.id), status: :unprocessable_entity }
+      end
+    end
+  end
+  def deleteFood
+     @foods = Food.find_by_id(params[:id])
+     @user = User.find(current_user.id)
+     @foods.users.delete(@user)
+     respond_to do |format|
+      format.html { render 'restaurants/individualFavRestaurant'}
+      end
+  end
   def list
     # @restaurants = Restaurant.joins(:foods).select("categories.*, COUNT(issues.id) AS issues_count").group('categories.id')
     @user = User.find(current_user.id);
