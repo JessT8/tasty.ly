@@ -4,7 +4,7 @@
   		<%= content_tag :div,
 			  id: "foodList",
 			  data: @restaurants.to_json,
-			  fav: @@favorites.to_json do %>
+			  fav: @favorites.to_json do %>
 			<% end %>
   	</div>
 <% end %>

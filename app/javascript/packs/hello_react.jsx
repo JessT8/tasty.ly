@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import App from '../app'
 import App2 from '../app2'
+import App3 from '../app3'
 
 const Hello = props => (
     <div></div>
@@ -24,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 if( document.getElementById('list')){
     const node = document.getElementById('list');
     const data = JSON.parse(node.getAttribute('data'));
-    console.log(data);
+console.log('here',data);
   ReactDOM.render(
     <App data={data}/>,
    document.getElementById('list')
+
   )}else if(document.getElementById('individualRestaurant')){
       const node = document.getElementById('individualRestaurant');
       const data = JSON.parse(node.getAttribute('data'));
@@ -37,7 +39,14 @@ if( document.getElementById('list')){
       if(present){
         checked= true;
       }
-      console.log(checked);
+
       ReactDOM.render(
     <App2 data={data} food={food} present={checked}/>, node)
-  }})
+  }else if(document.getElementById("foodList")){
+    const node = document.getElementById('foodList');
+    const data = JSON.parse(node.getAttribute('data'));
+    const fav = JSON.parse(node.getAttribute('fav'));
+    ReactDOM.render(
+    <App3 data={data} fav={fav}/>, node)
+  }
+})
