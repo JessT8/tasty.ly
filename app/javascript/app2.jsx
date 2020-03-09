@@ -6,13 +6,21 @@ export default class App2 extends React.Component{
     constructor(){
         super(),
         this.state ={
-            checked: false
+            checked: false,
+            foodChecked: []
         }
     }
     componentDidMount(){
         if(this.props.present){
             this.setState({checked:true});
         }
+        let foodNum = parseInt(this.props.food.length);
+        const foodChecked = [];
+        console.log(foodNum);
+        for(var i = 0; i < foodNum;i++){
+            foodChecked.push(true);
+        }
+        this.setState({foodChecked: foodChecked});
     }
 handleFav = lists => {
     if(this.state.checked){
@@ -43,10 +51,12 @@ handleFav = lists => {
         let displayRestaurant = "";
         let foods="";
      if(this.props.data){
+        const checkedArray = this.state.foodChecked;
         foods = this.props.food.map((food,index) =>{
             return <div className="input-group">
              <input id={index}
                    type="checkbox"
+                   checked={checkedArray[index]}
                    className = "foodcheckbox"
                    />
             {food.name}

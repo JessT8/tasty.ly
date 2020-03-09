@@ -9,7 +9,6 @@ export default class Favrestaurant extends React.Component{
         }
     }
     componentDidMount(){
-
         this.setState({ restaurants: this.props.data});
     }
     render(){
