@@ -16,6 +16,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Upright:700&display=swap');
 
 a:hover {
   background-color: transparent;
@@ -27,7 +28,9 @@ a:hover {
 	letter-spacing: 0.1em;
 }
 
-
+.website-title {
+font-family: 'Cormorant Upright', serif !important;
+}
 @mixin checkmark($size) {
   font-size: $size;
   content: "❤";

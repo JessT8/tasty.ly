@@ -1,11 +1,14 @@
-<%=  render 'shared/sideNav' do %>
-  	<div class="col-10">
-<%= content_tag :div,
-  id: "individualRestaurant",
-  data: @restaurant.to_json,
-  food: @food.to_json,
-  present: @present,
-  checkedFood: @checkedFood.to_json do %>
-<% end %>
-<% end %>
+<div class="pt-5">
+	<%=  render 'shared/sideNav' do %>
+	  	<div class="col-10">
+				<%= content_tag :div,
+				  id: "individualRestaurant",
+				  data: @restaurant.to_json,
+				  food: @food.to_json,
+				  present: @present,
+				  checkedFood: @checkedFood.to_json do %>
+				<% end %>
+			</div>
+	<% end %>
+</div>
 <%= javascript_pack_tag 'hello_react' %>

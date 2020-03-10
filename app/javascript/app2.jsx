@@ -87,17 +87,23 @@ export default class App2 extends React.Component{
      if(this.props.data){
         const checked = this.state.foodChecked;
         foods = this.props.food.map((food,index) =>{
-            return <div className="input-group">
-             <input id={index}
-                    value={index}
-                   type="checkbox"
-                   checked={checked[index]}
-                   className = "foodcheckbox"
-                   onChange ={(e)=>{this.handleFoodFav(e)}}
-                   />
-            {food.name}
-            <label htmlFor={index} className="ml-3 mr-2"/>
-            </div>
+            return <div className="container">
+                        <div className="row border border-primary border-top-0 border-left-0 border-right-0 mb-2 mt-2 pb-2">
+                            <div className="col-10">
+                                {food.name}
+                            </div>
+                            <div className="col-2 my-auto">
+                                <input id={index}
+                                       value={index}
+                                       type="checkbox"
+                                       checked={checked[index]}
+                                       className = "foodcheckbox inline"
+                                       onChange ={(e)=>{this.handleFoodFav(e)}}
+                                />
+                                <label htmlFor={index} className="mb-2 inline"/>
+                            </div>
+                        </div>
+                    </div>
         });
         displayRestaurant = <div className='col mx-auto text-center'>
         <div className="inline">
@@ -112,8 +118,8 @@ export default class App2 extends React.Component{
             <label htmlFor="heart" className="inline"></label>
         </div>
         <div>
-        <img className="thumb-img" src={this.props.data.image_url} />
-        <h5>Menu items</h5>
+        <img className="thumb-img mt-3 mb-4" src={this.props.data.image_url} />
+        <h5 className="mb-3">Menu items</h5>
         </div>
         <div className="w-50 mx-auto text-center form-inline">
         {foods}
