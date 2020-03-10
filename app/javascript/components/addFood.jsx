@@ -5,35 +5,34 @@ export default class addFood extends React.Component{
     constructor(){
         super()
         this.state = {
-            value: ""
+            value: "",
+            errMsg: ""
         }
     }
-    addItem=()=>{
-        const url = `/favlist/foods/${this.state.value}`;
-            axios.post(url)
-          .then(res => {
-             })
-          .catch(err => {
-            console.log(err.response);
-          });
+    updateFood=()=>{
+        console.log(this.state.value!=="");
+        if(this.state.value!== ""){
+            this.props.updateFood(this.state.value);
+            this.setState({value:"",errMsg:""});
+        }else{
+            this.setState({errMsg:"Please input something"});
+        }
     }
     changeValue=(e)=>{
            this.setState({value: e.target.value});
     }
     render(){
         return(
-            <div className="col-12">
-                <div className="container">
+                <div className="container m-5">
                     <div className="row">
                     <div className="col-4">
                         <div className="form-inline">
                         <input value={this.state.value} className="form-control" onChange={(e)=>{this.changeValue(e)}}/>
-                        <button onClick={this.addItem} className='btn btn-primary'>Add Food</button>
+                        <button onClick={this.updateFood} className='btn btn-primary'>Add Food</button><p style={{color:"red"}}>{this.state.errMsg}</p>
                         </div>
                     </div>
                     </div>
                 </div>
-            </div>
             );
     }
 }
