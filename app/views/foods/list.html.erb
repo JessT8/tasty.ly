@@ -1,7 +1,9 @@
 <div class="pt-5">
 <%=  render 'shared/sideNav' do %>
   	<div class="col-10 pt-2">
+  		<div class="text-center pb-3">
   		<h1>Favorite Food Restaurants</h1>
+  	</div>
   		<%= content_tag :div,
 			  id: "foodList",
 			  data: @restaurants.to_json,

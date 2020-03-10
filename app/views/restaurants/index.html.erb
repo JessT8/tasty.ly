@@ -1,7 +1,9 @@
 <div class="pt-5">
 	<%= render :layout => '/shared/sideNav' do %>
 	  	<div class="col-10 pt-2">
+	  		<div class="text-center pb-3">
 	  		<h1>Restaurants</h1>
+	  	</div>
 	  		<%= content_tag :div,
 				  id: "list",
 				  data: @restaurants.to_json do %>

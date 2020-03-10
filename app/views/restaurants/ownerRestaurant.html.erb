@@ -7,7 +7,7 @@
 						<% @restaurants.each do |restaurant| %>
 						<div class="col-4 p-0 mb-3">
 						  <a href='/restaurants/<%= restaurant.id %>'/>
-					    		<%=image_tag restaurant.image_url %>
+					    		<%=image_tag restaurant.image_url, :class=>"thumb-img" %>
 					    		<h4><%= restaurant.name %></h4>
 					   	</a>
 					   	</div>
