@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import App from '../app'
 import App2 from '../app2'
 import App3 from '../app3'
+import App4 from '../app4'
 
 const Hello = props => (
     <div></div>
@@ -47,5 +48,11 @@ if( document.getElementById('list')){
     const fav = JSON.parse(node.getAttribute('fav'));
     ReactDOM.render(
     <App3 data={data} fav={fav}/>, node)
+  }else if(document.getElementById('addFoodItem')){
+    const node = document.getElementById('addFoodItem');
+    const restaurant = JSON.parse(node.getAttribute('restaurant'));
+    const food = JSON.parse(node.getAttribute('food'));
+          ReactDOM.render(
+    <App4 restaurant={restaurant} foods={food}/>, node)
   }
 })

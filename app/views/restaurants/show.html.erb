@@ -1,10 +1,10 @@
 <%=  render 'shared/ownerNav' do %>
   	<div class="col-10">
   		<%=image_tag @restaurant.image_url %>
-  		<%= @restaurant.name %>
+  		<div><%= @restaurant.name %></div>
   	<%= content_tag :div,
 			id: "addFoodItem",
-			restaurant: @restaurant.to_json
+			restaurant: @restaurant.to_json,
 			food: @food.to_json do %>
 		<% end %>
 <% end %>

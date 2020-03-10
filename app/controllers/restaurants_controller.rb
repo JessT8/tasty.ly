@@ -52,6 +52,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find_by_id(params[:id])
+    @food = @restaurant.foods
   end
 
   # GET /restaurants/new

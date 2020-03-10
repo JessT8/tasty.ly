@@ -104,3 +104,8 @@ a:hover {
     transform: scale(1.2);
   }
 }
+.ScrollableContainer {
+   max-width: 300px;
+   max-height: 300px;
+   overflow: auto;
+}
