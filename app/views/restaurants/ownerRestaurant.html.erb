@@ -9,7 +9,7 @@
 						<% @restaurants.each do |restaurant| %>
 						<div class="col-4 p-0 mb-3">
 						  <a href='/restaurants/<%= restaurant.id %>'/>
-					    		<%=image_tag restaurant.image_url, :class=>"thumb-img" %>
+					    		<%=image_tag restaurant.image_url, :class=>"thumb-img", onerror: 'this.error=null;this.src="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg"' %>
 					    		<h4><%= restaurant.name %></h4>
 					   	</a>
 					   	</div>

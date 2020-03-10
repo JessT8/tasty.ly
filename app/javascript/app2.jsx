@@ -105,6 +105,10 @@ export default class App2 extends React.Component{
                         </div>
                     </div>
         });
+        let image =  "https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg";
+        if(this.props.data.image_url){
+            image = this.props.data.image_url;
+        }
         displayRestaurant = <div className='col mx-auto text-center'>
         <div className="inline">
          <h1 className="inline">{this.props.data.name}</h1>
@@ -118,13 +122,12 @@ export default class App2 extends React.Component{
             <label htmlFor="heart" className="inline"></label>
         </div>
         <div>
-        <img className="thumb-img mt-3 mb-4" src={this.props.data.image_url} />
+        <img className="thumb-img mt-3 mb-4" src={image} />
         <h5 className="mb-3">Menu items</h5>
         </div>
-        <div className="w-50 mx-auto text-center form-inline">
+        <div className="w-50 mx-auto text-center form-inline menuHeight">
         {foods}
         </div>
-
         </div>
      }
         return(

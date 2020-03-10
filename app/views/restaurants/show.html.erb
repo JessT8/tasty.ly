@@ -7,7 +7,7 @@
   	<div class="container">
   	<div class="row">
   		<div class="mx-auto text-center">
-  		<%=image_tag @restaurant.image_url, :class=>"thumb-img" %>
+  		<%=image_tag @restaurant.image_url, :class=>"thumb-img", src: 'Image not found', onerror: 'this.error=null;this.src="https://visualsound.com/wp-content/uploads/2019/05/unavailable-image.jpg"'%>
   	<%= content_tag :div,
 			id: "addFoodItem",
 			restaurant: @restaurant.to_json,
