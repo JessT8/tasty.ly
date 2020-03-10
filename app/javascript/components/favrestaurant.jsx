@@ -18,7 +18,7 @@ export default class Favrestaurant extends React.Component{
             <React.Fragment key = {index}>
                         <div className="col-4 p-0 mb-3">
                         <a href={link}>
-                        <img src={restaurant.image_url} />
+                        <img className ="thumb-img"  src={restaurant.image_url} />
                         <h4>{restaurant.name}</h4>
                         </a>
                          </div>

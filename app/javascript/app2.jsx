@@ -100,18 +100,19 @@ export default class App2 extends React.Component{
             </div>
         });
         displayRestaurant = <div className='col mx-auto text-center'>
-        <div className='d-flex d-inline'><h1>{this.props.data.name}</h1>
+        <div className="inline">
+         <h1 className="inline">{this.props.data.name}</h1>
             <input id="heart"
                    value={this.props.data.id}
                    type="checkbox"
-                   className = "red-heart-checkbox"
+                   className = "red-heart-checkbox inline"
                    checked={this.state.checked}
                    onChange = {(e)=>{this.handleFav(e)}}
                    />
-            <label htmlFor="heart"></label>
+            <label htmlFor="heart" className="inline"></label>
         </div>
         <div>
-        <img src={this.props.data.image_url} />
+        <img className="thumb-img" src={this.props.data.image_url} />
         <h5>Menu items</h5>
         </div>
         <div className="w-50 mx-auto text-center form-inline">

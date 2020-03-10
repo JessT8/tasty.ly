@@ -40,7 +40,7 @@ a:hover {
   content: "";
   position: absolute;
   margin-left: -0.3*$size;
-  margin-top: -0.15*$size;
+  margin-top: -0.05*$size;
 }
 
 @mixin no-select {
@@ -108,4 +108,14 @@ a:hover {
    max-width: 300px;
    max-height: 300px;
    overflow: auto;
+}
+.thumb-img{
+   object-fit: cover;
+   overflow: hidden;
+   height: 20vw;
+   width : 20vw;
+   border-radius: 2vw;
+}
+.inline{
+	display: inline;
 }

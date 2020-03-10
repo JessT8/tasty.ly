@@ -19,7 +19,7 @@ export default class Favrestaurant extends React.Component{
             <React.Fragment key = {index}>
                         <div className="col-4 p-0 mb-3">
                         <a href={link}>
-                        <img src={restaurant.image_url} />
+                        <img className ="thumb-img" width="300px" height="300px" src={restaurant.image_url} />
                         <h4>{restaurant.name}</h4>
                         <div>
                         <p className="text-muted">Number of favorite menu item: {favNumber[index]}</p>
