@@ -10,11 +10,13 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find_by_id(params[:id])
     @food = @restaurant.foods
+    @ownerRestaurants = Restaurant.where(owner_id:current_owner.id)
   end
 
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+  @ownerRestaurants = Restaurant.where(owner_id:current_owner.id)
   end
 
   # GET /restaurants/1/edit
@@ -51,6 +53,7 @@ class RestaurantsController < ApplicationController
   end
   def ownerRestaurant
         @restaurants = Restaurant.where(owner: current_owner.id)
+    @ownerRestaurants = Restaurant.where(owner_id:current_owner.id)
   end
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json

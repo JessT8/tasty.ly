@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
       if resource.class == User
         list_restaurants_path
       else
-        new_restaurant_path
+        ownerRestaurant_restaurants_path
       end
     end
 end

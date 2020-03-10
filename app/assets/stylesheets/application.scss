@@ -27,7 +27,9 @@ a:hover {
 	font-family: 'Roboto', sans-serif !important;
 	letter-spacing: 0.1em;
 }
-
+body{
+	// background-color: #FFF0F6 !important;
+}
 .website-title {
 font-family: 'Cormorant Upright', serif !important;
 }
@@ -128,4 +130,13 @@ font-family: 'Cormorant Upright', serif !important;
 .menuHeight{
 		height:30vh;
 	overflow-x: auto;
+}
+.restaurantHeight{
+		max-height:30vh;
+		max-width: 30vh;
+	overflow-x: auto;
+	margin-bottom: 2vh
+}
+.navRLinks{
+	font-size: 13px !important;
 }

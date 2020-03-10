@@ -6,6 +6,11 @@
 				<h1 class="website-title"> Tasty.ly</h1>
 			</div>
 				<p><%= link_to "My Restaurants", ownerRestaurant_path %></p>
+				<div class="restaurantHeight mb-3 ml-2">
+				<% @ownerRestaurants.each do |r|%>
+				<a class="navRLinks" href='/restaurants/<%= r.id %>'><%= r.name %></a>
+				<% end %>
+			</div>
 				<p><%= link_to "Add Restaurant", new_restaurant_path %></p>
 				<p><%= link_to "Sign out", destroy_owner_session_url, method: :delete %></p>
 			</div>
