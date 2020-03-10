@@ -31,6 +31,7 @@ export default class App2 extends React.Component{
 
 
     handleFav = lists => {
+        console.log("DELETE FAV RESTAURANTS")
         if(this.state.checked){
         console.log("Destroying");
         const url = `/favlist/restaurants/${lists.target.value}`;
@@ -51,7 +52,7 @@ export default class App2 extends React.Component{
           .catch(err => {
             console.log(err.response);
           });
-        }}
+        }};
 
     handleFoodFav = list => {
         const checkedFood = this.state.foodChecked;
@@ -66,7 +67,7 @@ export default class App2 extends React.Component{
             this.setState({foodChecked: checkedFood})
              })
           .catch(err => {
-            console.log("jdj",err);
+            console.log(err);
           });
         }else{
             console.log("Favorite food");
@@ -78,7 +79,7 @@ export default class App2 extends React.Component{
           .catch(err => {
             console.log(err);
           });
-        }}
+        }};
 
     render(){
         let displayRestaurant = "";

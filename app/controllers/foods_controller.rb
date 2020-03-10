@@ -24,14 +24,12 @@ class FoodsController < ApplicationController
     end
   end
   def deleteFood
-
      @foods = Food.find(set_food.id)
      @restaurant = @foods.restaurant
      @user = User.find(current_user.id)
      @foods.users.delete(@user)
      respond_to do |format|
-      format.html { redirect_to individualFavRestaurant_url(@restaurant.id), notice: 'Food was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { render 'restaurants/individualFavRestaurant'}
     end
   end
   def list

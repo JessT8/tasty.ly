@@ -2,5 +2,10 @@
   	<div class="col-10">
   		<%=image_tag @restaurant.image_url %>
   		<%= @restaurant.name %>
- <%= link_to 'Add Food Item', new_newItem_path(@restaurant.id) %>
+  	<%= content_tag :div,
+			id: "addFoodItem",
+			restaurant: @restaurant.to_json
+			food: @food.to_json do %>
+		<% end %>
 <% end %>
+<%= javascript_pack_tag 'hello_react' %>
