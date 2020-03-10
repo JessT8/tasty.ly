@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   end
   devise_for :owners
   devise_for :users
-  root 'onepage#index'
+
+  root :to => 'restaurants#list'
   #users
   get 'favlist/restaurants/' => 'restaurants#list', as: :favRestaurantList
   get 'favlist/restaurants/:id' => 'restaurants#individualFavRestaurant', as: :individualFavRestaurant

@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_user!, except: [:edit, :update, :destroy, :new, :create ]
+  before_action :authenticate_owner!, except: [:favFood, :deleteFood, :list]
 
   # GET /foods
   # GET /foods.json
@@ -10,6 +12,8 @@ class FoodsController < ApplicationController
   # GET /foods/1.json
   def show
   end
+
+  #users
   def favFood
     @foods = Food.find_by_id(params[:id])
     @restaurant = @foods.restaurant
@@ -32,6 +36,7 @@ class FoodsController < ApplicationController
       format.html { render 'restaurants/individualFavRestaurant'}
     end
   end
+  #list of number of food like counts
   def list
     # @restaurants = Restaurant.joins(:foods).select("categories.*, COUNT(issues.id) AS issues_count").group('categories.id')
     @user = User.find(current_user.id);
@@ -40,6 +45,8 @@ class FoodsController < ApplicationController
     @restaurants = @count.keys
     @favorites = @count.values
   end
+
+  #owners
   # GET /foods/new
   def new
     @food = Food.new

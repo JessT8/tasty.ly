@@ -1,53 +1,10 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :new, :edit, :create, :update,:destroy, :ownerRestaurant ]
+   before_action :authenticate_owner!, except: [:individualFavRestaurant, :favRestaurant, :deleteRestaurant, :index,:list]
 
-  # GET /restaurants
-  # GET /restaurants.json
-  def index
-    @restaurants = Restaurant.all
-    #get not favorite restaurants
-    # @user = User.find_by_id(current_user.id)
-    # @restaurants = Restaurant.left_outer_joins(:users).where(users: { id: nil } )
-  end
+#owners
 
-  def list
-      @user = User.find_by_id(current_user.id)
-      @restaurants = @user.restaurants
-  end
-
-  def individualFavRestaurant
-    @restaurant = Restaurant.find_by_id(params[:id])
-    @food = @restaurant.foods
-    @user = User.find_by_id(current_user.id)
-    @checkedFood = @user.foods.where(restaurant_id: params[:id] )
-    if @restaurant.users.exists?(@user.id)
-      @present = true
-    else
-      @present = nil
-    end
-  end
-
-  def favRestaurant
-    @restaurants = Restaurant.find_by_id(params[:id])
-    @user = User.find_by_id(current_user.id)
-    respond_to do |format|
-      if @restaurants.users << @user
-        format.html { redirect_to individualFavRestaurant_url(params[:id]), notice: 'Restaurant was successfully created.' }
-      else
-        format.html { render :new }
-        format.json { render json: individualFavRestaurant_url(params[:id]), status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def deleteRestaurant
-     @restaurants = Restaurant.find(params[:id])
-     @user = User.find(current_user.id)
-     @restaurants.users.delete(@user)
-     respond_to do |format|
-      format.html { render 'restaurants/individualFavRestaurant'}
-      end
-  end
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
@@ -105,6 +62,54 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  #users
+    # GET /restaurants
+  # GET /restaurants.json
+  def index
+    @restaurants = Restaurant.all
+    #get not favorite restaurants
+    # @user = User.find_by_id(current_user.id)
+    # @restaurants = Restaurant.left_outer_joins(:users).where(users: { id: nil } )
+  end
+
+  def list
+      @user = User.find_by_id(current_user.id)
+      @restaurants = @user.restaurants
+  end
+
+  def individualFavRestaurant
+    @restaurant = Restaurant.find_by_id(params[:id])
+    @food = @restaurant.foods
+    @user = User.find_by_id(current_user.id)
+    @checkedFood = @user.foods.where(restaurant_id: params[:id] )
+    if @restaurant.users.exists?(@user.id)
+      @present = true
+    else
+      @present = nil
+    end
+  end
+
+  def favRestaurant
+    @restaurants = Restaurant.find_by_id(params[:id])
+    @user = User.find_by_id(current_user.id)
+    respond_to do |format|
+      if @restaurants.users << @user
+        format.html { redirect_to individualFavRestaurant_url(params[:id]), notice: 'Restaurant was successfully created.' }
+      else
+        format.html { render :new }
+        format.json { render json: individualFavRestaurant_url(params[:id]), status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def deleteRestaurant
+     @restaurants = Restaurant.find(params[:id])
+     @user = User.find(current_user.id)
+     @restaurants.users.delete(@user)
+     respond_to do |format|
+      format.html { render 'restaurants/individualFavRestaurant'}
+      end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
