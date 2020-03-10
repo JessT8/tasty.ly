@@ -23,16 +23,14 @@ export default class addFood extends React.Component{
     }
     render(){
         return(
-                <div className="container m-5">
-                    <div className="row">
-                    <div className="col-4">
-                        <div className="form-inline">
-                        <input value={this.state.value} className="form-control" onChange={(e)=>{this.changeValue(e)}}/>
+                    <div className="row mt-5 mb-5">
+                    <div className="col mx-auto justify-content-center">
+                        <div className="form-inline justify-content-center">
+                        <input value={this.state.value} className="form-control mr-2" onChange={(e)=>{this.changeValue(e)}}/>
                         <button onClick={this.updateFood} className='btn btn-primary'>Add Food</button><p style={{color:"red"}}>{this.state.errMsg}</p>
                         </div>
                     </div>
                     </div>
-                </div>
             );
     }
 }

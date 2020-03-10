@@ -107,11 +107,6 @@ font-family: 'Cormorant Upright', serif !important;
     transform: scale(1.2);
   }
 }
-.ScrollableContainer {
-   max-width: 300px;
-   max-height: 300px;
-   overflow: auto;
-}
 .thumb-img{
    object-fit: cover;
    overflow: hidden;
@@ -121,4 +116,12 @@ font-family: 'Cormorant Upright', serif !important;
 }
 .inline{
 	display: inline;
+}
+.center{
+	margin: 0 auto;
+}
+
+.foodHeight{
+	height:25vh;
+	overflow-x: auto;
 }

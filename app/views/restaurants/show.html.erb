@@ -1,13 +1,20 @@
 <div class="pt-5">
 <%=  render 'shared/ownerNav' do %>
   	<div class="col-10">
+  		<div class="text-center pb-3">
   		<h1><%= @restaurant.name %></h1>
+  	</div>
+  	<div class="container">
+  	<div class="row">
+  		<div class="mx-auto text-center">
   		<%=image_tag @restaurant.image_url, :class=>"thumb-img" %>
   	<%= content_tag :div,
 			id: "addFoodItem",
 			restaurant: @restaurant.to_json,
 			food: @food.to_json do %>
 		<% end %>
+	</div>
+	</div>
 <% end %>
 </div>
 <%= javascript_pack_tag 'hello_react' %>

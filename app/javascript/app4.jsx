@@ -32,13 +32,18 @@ export default class App4 extends React.Component{
     }
     render(){
         let foods = this.state.foods.map(food=>{
-            return <div className="col-3">{food.name}</div>
+            return <div><li className="
+            pb-2">{food.name}</li></div>
         });
         return(
             <div className="container">
-            <div className="row">
                <AddFood restaurant={this.props.restaurant} updateFood={this.updateFood}/>
+               <div className="row">
+               <div className="w-75 foodHeight text-left mx-auto">
+               <ol>
                     {foods}
+                    </ol>
+                    </div>
 
             </div>
             </div>
