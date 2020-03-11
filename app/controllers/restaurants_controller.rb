@@ -12,7 +12,9 @@ class RestaurantsController < ApplicationController
     @food = @restaurant.foods
     @ownerRestaurants = Restaurant.where(owner_id:current_owner.id)
     @restaurant_likes = @restaurant.users.count
-
+    @food_likes = @food.map do |like|
+              like.users.count
+            end
   end
 
   # GET /restaurants/new

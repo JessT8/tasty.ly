@@ -53,7 +53,8 @@ if( document.getElementById('list')){
     const restaurant = JSON.parse(node.getAttribute('restaurant'));
     const food = JSON.parse(node.getAttribute('food'));
     const restaurant_likes = JSON.parse(node.getAttribute('restaurant_likes'));
+    const food_likes = JSON.parse(node.getAttribute('food_likes'));
           ReactDOM.render(
-    <App4 restaurant={restaurant} foods={food} restaurant_likes={restaurant_likes}/>, node)
+    <App4 restaurant={restaurant} foods={food} restaurant_likes={restaurant_likes} food_likes={food_likes}/>, node)
   }
 })

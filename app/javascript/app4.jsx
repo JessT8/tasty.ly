@@ -5,12 +5,15 @@ export default class App4 extends React.Component{
     constructor(){
         super()
         this.state ={
-            foods: []
+            foods: [],
+            food_likes: []
         }
     }
     componentDidMount(){
         const foods = this.props.foods;
-        this.setState({foods: foods});
+        const likes = this.props.food_likes;
+        console.log(this.props.food_likes);
+        this.setState({foods: foods, food_likes: likes});
     }
     updateFood = value =>{
         console.log('here');
@@ -31,9 +34,10 @@ export default class App4 extends React.Component{
           });
     }
     render(){
-        let foods = this.state.foods.map(food=>{
+        let foods = this.state.foods.map((food, index)=>{
+             let likes = this.state.food_likes;
             return <div><li className="
-            pb-2">{food.name}</li></div>
+            pb-2">{food.name} {likes[index]}</li></div>
         });
         return(
             <div className="container">
