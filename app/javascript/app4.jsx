@@ -12,7 +12,6 @@ export default class App4 extends React.Component{
     componentDidMount(){
         const foods = this.props.foods;
         const likes = this.props.food_likes;
-        console.log(this.props.food_likes);
         this.setState({foods: foods, food_likes: likes});
     }
     updateFood = value =>{
@@ -26,7 +25,7 @@ export default class App4 extends React.Component{
             axios.post(url, food)
           .then(res => {
 
-            this.setState({"foods": [...this.state.foods, food]})
+            this.setState({"foods": [...this.state.foods, food], food_likes: [...this.state.food_likes, 0]})
                 console.log(res);
              })
           .catch(err => {
@@ -36,8 +35,16 @@ export default class App4 extends React.Component{
     render(){
         let foods = this.state.foods.map((food, index)=>{
              let likes = this.state.food_likes;
-            return <div><li className="
-            pb-2">{food.name} {likes[index]}</li></div>
+            return (<div className="container">
+                        <div className="row border border-primary border-top-0 border-left-0 border-right-0 mb-2 mt-2 pb-2">
+                            <div className="col-10">
+                                {food.name}
+                            </div>
+                            <div className="col-2 my-auto">
+         {likes[index]} ❤️
+                            </div>
+                        </div>
+                    </div>)
         });
         return(
             <div className="container">
