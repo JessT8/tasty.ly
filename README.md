@@ -1,24 +1,24 @@
-# README
+# Tasty.ly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Technologies
+ - Ruby 2.5.1
+ - Rails 6.0.2
+ - Bootstrap 
+ - React
 
-Things you may want to cover:
+#### Problem statement
+Food lover needs a way to keep track of their favourite restaurants so that they can keep track of the restaurants they like.
 
-* Ruby version
+#### Solution
+Solution: I believe by providing a website that allows food lovers to favourite the restaurants they like so that they can keep track of them.
 
-* System dependencies
+#### User stories 
+ - As a food lover, I want to see a list of the restaurants that I like so I can see the list of my favourite restaurants.
+ - As a food lover, I want to be able to see a list of the food that I like in the restaurants so I can order the same food again from that restuaruant.
+ - As a restaurant owner, I would like to see the food item that my customers like so I can improve my restaurant. 
+ - As a restaurant owner, I would like to advertise my restaurant in order to increase my customer base.
 
-* Configuration
+#### ERD and Wireframe
+[ERD](https://github.com/JessT8/tasty.ly/blob/master/ERD.png)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Wireframe](https://github.com/JessT8/tasty.ly/blob/master/Wireframes.png)
