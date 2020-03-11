@@ -11,7 +11,8 @@
   	<%= content_tag :div,
 			id: "addFoodItem",
 			restaurant: @restaurant.to_json,
-			food: @food.to_json do %>
+			food: @food.to_json,
+			restaurant_likes: @restaurant_likes.to_json do %>
 		<% end %>
 	</div>
 	</div>

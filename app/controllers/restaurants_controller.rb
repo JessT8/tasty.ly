@@ -11,6 +11,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find_by_id(params[:id])
     @food = @restaurant.foods
     @ownerRestaurants = Restaurant.where(owner_id:current_owner.id)
+    @restaurant_likes = @restaurant.users.count
+
   end
 
   # GET /restaurants/new

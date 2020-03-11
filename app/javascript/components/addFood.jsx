@@ -23,7 +23,7 @@ export default class addFood extends React.Component{
     }
     render(){
         return(
-                    <div className="row mt-5 mb-5">
+                    <div className="row mt-2 mb-5">
                     <div className="col mx-auto justify-content-center">
                         <div className="form-inline justify-content-center">
                         <input value={this.state.value} className="form-control mr-2" onChange={(e)=>{this.changeValue(e)}}/>

@@ -37,6 +37,9 @@ export default class App4 extends React.Component{
         });
         return(
             <div className="container">
+            <div className="row mt-3 ml-2 ">
+            <p>{this.props.restaurant_likes} ❤️</p>
+            </div>
                <AddFood restaurant={this.props.restaurant} updateFood={this.updateFood}/>
                <div className="row">
                <div className="w-75 foodHeight text-left mx-auto">
@@ -44,7 +47,6 @@ export default class App4 extends React.Component{
                     {foods}
                     </ol>
                     </div>
-
             </div>
             </div>
             );

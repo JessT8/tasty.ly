@@ -52,7 +52,8 @@ if( document.getElementById('list')){
     const node = document.getElementById('addFoodItem');
     const restaurant = JSON.parse(node.getAttribute('restaurant'));
     const food = JSON.parse(node.getAttribute('food'));
+    const restaurant_likes = JSON.parse(node.getAttribute('restaurant_likes'));
           ReactDOM.render(
-    <App4 restaurant={restaurant} foods={food}/>, node)
+    <App4 restaurant={restaurant} foods={food} restaurant_likes={restaurant_likes}/>, node)
   }
 })
