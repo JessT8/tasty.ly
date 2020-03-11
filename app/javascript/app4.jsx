@@ -38,7 +38,9 @@ export default class App4 extends React.Component{
         return(
             <div className="container">
             <div className="row mt-3 ml-2 ">
+             <div className="col mx-auto justify-content-center">
             <p>{this.props.restaurant_likes} ❤️</p>
+            </div>
             </div>
                <AddFood restaurant={this.props.restaurant} updateFood={this.updateFood}/>
                <div className="row">
