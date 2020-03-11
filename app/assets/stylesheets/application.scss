@@ -23,6 +23,11 @@ a:hover {
   color: #0F22DC !important;
  text-decoration: none !important;
 }
+.edit {
+  background-image: url(./edit.png);
+  width:1vw;
+  height:1vh;
+}
 
 * {
 	font-family: 'Roboto', sans-serif !important;
@@ -133,8 +138,8 @@ font-family: 'Cormorant Upright', serif !important;
 	overflow-x: auto;
 }
 .restaurantHeight{
-	max-height:30vh;
-	max-width: 25vh;
+	max-height:50vh;
+	max-width: 15vh;
 	overflow-x: auto;
 	margin-bottom: 2vh
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import AddFood from './components/addFood'
+
 export default class App4 extends React.Component{
     constructor(){
         super()
@@ -40,8 +41,8 @@ export default class App4 extends React.Component{
                             <div className="col-10">
                                 {food.name}
                             </div>
-                            <div className="col-2 my-auto">
-         {likes[index]} ❤️
+                            <div className="col-2 my-auto ">
+                               <p> <i>{likes[index]}</i> ❤️</p>
                             </div>
                         </div>
                     </div>)
