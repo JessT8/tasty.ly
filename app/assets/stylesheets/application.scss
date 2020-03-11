@@ -23,6 +23,16 @@ a:hover {
   color: #0F22DC !important;
  text-decoration: none !important;
 }
+a:visited {
+  background-color: transparent;
+  color: #4F4F54 !important;
+ text-decoration: none !important;
+}
+a{
+  background-color: transparent;
+  color: #4F4F54 !important;
+ text-decoration: none !important;
+}
 .edit {
   background-image: url(./edit.png);
   width:1vw;
